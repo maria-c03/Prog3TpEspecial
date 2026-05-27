@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Servicios {
@@ -36,6 +37,11 @@ public class Servicios {
     /*Servicio 1: Dado un código de paquete (String), retornar toda la información
     del paquete asociado. En caso de no existir, retornar null.*/
     public Paquete servicio1(String codigoPaquete){
+        for (Paquete p : paquetes) {
+            if (p.getCodigo().equals(codigoPaquete)) {
+                return p;
+            }
+        }
         return null;
     }
 
@@ -43,14 +49,26 @@ public class Servicios {
     contienen alimentos (true) o que no contienen alimentos (false), retornar el
     listado de paquetes correspondiente.*/
     public List<Paquete> servicio2(boolean contieneAlimentos) {
-        return paquetes;
+        ArrayList<Paquete> contienenAlimentos = new ArrayList<>();
+        for (Paquete p : paquetes) {
+            if (p.isAlimentos()) {
+                contienenAlimentos.add(p);
+            }
+        }
+        return contienenAlimentos;
     }
 
     /*Servicio 3: Dados dos valores enteros que representan un nivel de urgencia
     mínimo y máximo, retornar todos los paquetes cuyo nivel de urgencia se
     encuentre dentro de ese rango (inclusive).*/
     public List<Paquete> servicio3(int urgenciaMinima, int urgenciaMaxima) {
-        return paquetes;
+        ArrayList<Paquete> urgentes = new ArrayList<>();
+        for (Paquete p : paquetes) {
+            if(p.getUrgencia()>=urgenciaMinima && p.getUrgencia()<=urgenciaMaxima) {
+                urgentes.add(p);
+            }
+        }
+        return urgentes;
     }
 
 }
