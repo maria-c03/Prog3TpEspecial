@@ -49,13 +49,13 @@ public class Servicios {
     contienen alimentos (true) o que no contienen alimentos (false), retornar el
     listado de paquetes correspondiente.*/
     public List<Paquete> servicio2(boolean contieneAlimentos) {
-        ArrayList<Paquete> contienenAlimentos = new ArrayList<>();
+        ArrayList<Paquete> alimentos = new ArrayList<>();
         for (Paquete p : paquetes) {
-            if (p.isAlimentos()) {
-                contienenAlimentos.add(p);
+            if (p.tieneAlimentos() == contieneAlimentos) {
+                alimentos.add(p);
             }
         }
-        return contienenAlimentos;
+        return alimentos;
     }
 
     /*Servicio 3: Dados dos valores enteros que representan un nivel de urgencia

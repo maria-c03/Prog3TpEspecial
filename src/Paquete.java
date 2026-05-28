@@ -34,7 +34,7 @@ public class Paquete {
         this.peso = peso;
     }
 
-    public boolean isAlimentos() {
+    public boolean tieneAlimentos() {
         return alimentos;
     }
 
