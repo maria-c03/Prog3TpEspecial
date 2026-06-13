@@ -37,6 +37,13 @@ public class Servicios {
         }
     }
 
+    public ArrayList<Camion> getCamiones() {
+        return new ArrayList<>(camiones);
+    }
+    public ArrayList<Paquete> getPaquetes() {
+        return new ArrayList<>(paquetes);
+    }
+
     /*Servicio 1: Dado un código de paquete (String), retornar toda la información
     del paquete asociado. En caso de no existir, retornar null.*/
     /*El costo computacionl de este servicio es O(n) donde n es la cantidad de paquetes.
@@ -82,5 +89,6 @@ public class Servicios {
         return urgentes;
     }
 
+    //servicio pesoAsc
 }
 

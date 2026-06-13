@@ -5,7 +5,6 @@ public class Paquete {
     private boolean alimentos;
     private int urgencia;
 
-    public Paquete() {}
     public Paquete(int id, String codigo, int peso, boolean alimentos, int urgencia) {
         this.id = id;
         this.codigo = codigo;
