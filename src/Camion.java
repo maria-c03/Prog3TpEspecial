@@ -3,12 +3,14 @@ public class Camion {
     private String patente;
     private boolean refrigerado;
     private int capacidadMaxCarga;
+    private int capacidadDisponible;
 
     public Camion(int id, String patente, boolean refrigerado, int capacidadMaxCarga) {
         this.id = id;
         this.patente = patente;
         this.refrigerado = refrigerado;
         this.capacidadMaxCarga = capacidadMaxCarga;
+        this.capacidadDisponible = capacidadMaxCarga;
     }
 
     public int getId() {
@@ -37,6 +39,12 @@ public class Camion {
 
     public void setCapacidadMaxCarga(int capacidadMaxCarga) {
         this.capacidadMaxCarga = capacidadMaxCarga;
+    }
+    public void setCapacidadDisponible(int capacidadDisponible) {
+        this.capacidadDisponible = capacidadDisponible;
+    }
+    public int getCapacidadDisponible() {
+        return capacidadDisponible;
     }
 
     @Override

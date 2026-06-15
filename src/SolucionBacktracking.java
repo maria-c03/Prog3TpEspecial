@@ -8,7 +8,8 @@ public class SolucionBacktracking {
     private int estadosGenerados;
 
     public SolucionBacktracking(Estado estado) {
-        this.paquetesAsignados =estado.getAsignacionActual();
+        // this.property = new ArrayList<>(listParam); Esto es similar a la linea 12, se copia para no romper encapsulamiento
+        this.paquetesAsignados = copiarPaquetesAsignados(estado.getAsignacionActual());
         this.pesoNoAsignado = estado.getPesoNoAsignado();
         this.estadosGenerados = 0;
     }
@@ -39,7 +40,7 @@ public class SolucionBacktracking {
         return copia;
     }
     public void imprimirSolucion(){
-        if(paquetesAsignados.keySet().size()==0){
+        if(paquetesAsignados.isEmpty()){
             System.out.println("No hay camiones para asignar los paquetes");
         }
         for (HashMap.Entry<Camion, List<Paquete>> entrada : paquetesAsignados.entrySet()) {

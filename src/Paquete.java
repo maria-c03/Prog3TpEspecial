@@ -53,4 +53,16 @@ public class Paquete {
     public String toString() {
         return   id + ";" + codigo  + ";" + peso + ";" + alimentos + ";" + urgencia;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        try {
+            Paquete p = (Paquete) o;
+            return this.getId()==p.getId() &&
+                   this.getCodigo().equals(p.getCodigo()) &&
+                   this.getPeso()==(p.getPeso());
+        }catch(Exception e){
+            return false;
+        }
+    }
 }

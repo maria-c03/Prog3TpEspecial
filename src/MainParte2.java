@@ -4,7 +4,7 @@ public class MainParte2 {
         //String pathCamiones = "src/resources/Camiones2.csv";
 
         String pathPaquetes = "src/resources/Paquetes.csv";
-       // String pathPaquetes = "src/resources/Paquetes2.csv";
+        //String pathPaquetes = "src/resources/Paquetes2.csv";
 
         Servicios servicio = new Servicios(pathCamiones, pathPaquetes);
         Backtracking bc = new Backtracking();
@@ -26,16 +26,25 @@ public class MainParte2 {
         Métrica para analizar el costo de la solución (cantidad de
         estados generados).*/
         System.out.println("Solución Backtracking");
-        SolucionBacktracking sol = bc.getSolucion(servicio.getCamiones(), servicio.getPaquetes());
-        sol.imprimirSolucion();
-
+        SolucionBacktracking solBacktraking = bc.getSolucion(servicio.getCamiones(), servicio.getPaquetes());
+        if(solBacktraking != null){
+            solBacktraking.imprimirSolucion();
+        }else {
+            System.out.println("No hay solución");
+        }
 
         /*Greedy
         Solución obtenida: cada camión con los paquetes asignados.
         Peso no asignado: <peso total de paquetes sin asignar> kg.
         Métrica para analizar el costo de la solución (cantidad de
         candidatos considerados).*/
+        Greedy gr = new Greedy();
         System.out.println("Solución Greedy");
-
+        SolucionGreedy solGreedy = gr.getSolucion(servicio.getCamiones(), servicio.getPaquetes());
+        if(solGreedy != null){
+            solGreedy.imprimirSolucion();
+        }else{
+            System.out.println("No hay solución");
+        }
     }
 }
