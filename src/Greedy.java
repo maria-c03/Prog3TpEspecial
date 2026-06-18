@@ -30,10 +30,11 @@ public class Greedy {
         if (paquetesCandidatos.isEmpty() || camiones.isEmpty()) {
             return null;
         }
-        Collections.sort(paquetesCandidatos, new ComparatorPesoDesc());
+        ArrayList<Paquete> candidatos = new ArrayList<>(paquetesCandidatos);
+        Collections.sort(candidatos, new ComparatorPesoDesc());
         SolucionGreedy solucion = new SolucionGreedy(camiones);
-        while (!paquetesCandidatos.isEmpty()) {
-            Paquete mejorCandidato = paquetesCandidatos.get(0);
+        while (!candidatos.isEmpty()) {
+            Paquete mejorCandidato = candidatos.get(0);
             i = 0;
             solucion.setCandidatosConsiderados();
             agregado = false;
@@ -53,8 +54,7 @@ public class Greedy {
             if (!agregado) {
                 solucion.sumarPesoNoAsignado(mejorCandidato);
             }
-            paquetesCandidatos.remove(mejorCandidato);
-
+            candidatos.remove(mejorCandidato);
         }
         return solucion;
     }

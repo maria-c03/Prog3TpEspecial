@@ -46,14 +46,15 @@ public class SolucionBacktracking {
         for (HashMap.Entry<Camion, List<Paquete>> entrada : paquetesAsignados.entrySet()) {
             Camion camion = entrada.getKey();
             List<Paquete> paquetes = entrada.getValue();
+            System.out.println("Camión: " + camion.getId() + " capacidad máxima: " + camion.getCapacidadMaxCarga());
             if(paquetes.isEmpty()){
-                System.out.println("Camion: " + camion.getId() + " no contien paquetes" );
+                System.out.println("Camion: " + camion.getId() + " no contiene paquetes" );
             }
             for(Paquete paquete : paquetes){
-                System.out.println("Camión: " + camion.getId() + " | Paquete: " + paquete.getId() +" peso: "+ paquete.getPeso() + "kg");
+                System.out.println("Paquete: " + paquete.getId() +" peso: "+ paquete.getPeso() + "kg");
             }
         }
-        System.out.println("Peso total de paquetes sin asignar: " + pesoNoAsignado);
+        System.out.println("Peso total de paquetes sin asignar: " + pesoNoAsignado+"kg");
         System.out.println("Estados generados: " +  estadosGenerados);
     }
 }
