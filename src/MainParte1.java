@@ -21,7 +21,6 @@ public class MainParte1 {
         System.out.println("paquetes por urgencia");
         System.out.println(servicio.servicio3(80,100));
 
-        //hacer main para parte 2
     }
 }
 

@@ -14,21 +14,21 @@ public class Backtracking {
     /**
      * Planteo Backtracking
      * -¿Como se genera el arbol de exploracion?
-     * Arrancamos con un arbol vacio donde en cada nivel del arbol el algoritmo agrega un paquete
+     * Arrancamos con un arbol vacio donde en cada nivel del arbol el algoritmo asigna un paquete
      *
      * nivel 0                                                                              [C1=[] C2=[] C3=[] []]
      * nivel 1                    [C1=[P1] C2=[] C3[] []]               [C1=[] C2=[P1] C3=[] []]              [C1=[] C2=[] C3=[P1] []]         [C1=[] C2=[] C3=[]noAsignarPaquete[P1]]
-     * nivel 2      [C1=P1,P2] C2=[] C3=[] C1=[P1] C2=[P2] C3=[] C1=[P1] C2=[] C3=[P2]]   ....
+     * nivel 2      [C1=P1,P2] C2=[] C3=[] [] C1=[P1] C2=[P2] C3=[] [] C1=[P1] C2=[] C3=[P2] []  C1=[P1] C2=[] C3=[] [P2]]   ....
      * :
-     * nivel n     hasta ocupar la capacidad maxima de los camiones
+     * nivel n     hasta haber evaluado la asignación de todos los paquetes
      *
      * -Complejidad temporal= en el peor caso O((k+1)^n) donde k = cantidad de camiones, 1 es la opcion de no asignar el paquete y es n = cantidad de paquetes(profundidad del arbol).
      *
      * -¿Cuales son los estados finales y solucion?
      * ESTADO FINAL = ocurre cuando considere todos los paquetes, es decir, decidir si se asigna o no el paquete a un camion
-     * ES SOLUCION = quiero solo guardar la mejor solucion, que en este caso seria cuando tengo la menor cantidad de peso asignado
+     * ES SOLUCION = quiero solo guardar la mejor solucion, que en este caso seria cuando tengo la menor cantidad de peso no asignado
      * -¿Posible poda?
-     * poda: si el peso de mi paguete es mayor al de la mejor solucion podo
+     * poda: Si en el estado actual el peso no asignado acumulado ya es igual o mayor que el mejorPesoNoAsignado encontrado hasta ahora podo.
      */
 
     public SolucionBacktracking getSolucion(ArrayList<Camion> camiones, ArrayList<Paquete> paquetes) {
